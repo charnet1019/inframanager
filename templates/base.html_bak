@@ -1,0 +1,57 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% from 'bootstrap5/nav.html' import render_nav_item %}
+
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %} Flask Bootstrap {% endblock %}</title> <!-- 定义标题块 -->
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+    {% endblock %}
+</head>
+<body>
+<main class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">资源管理</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- 利用宏 render_nav_item 创建菜单 -->
+                {{ render_nav_item('user.index', '首页', use_li=False) }}
+                {{ render_nav_item('user.index', '资产列表', use_li=False) }}
+                {{ render_nav_item('user.index', '用户管理', use_li=False) }}
+            </ul>
+        </div>
+
+    </nav>
+    {% block content %}  <!-- 定义内容块 -->
+        <h1> Hello Flask Bootstrap! </h1>
+    {% endblock %}
+    <footer class="text-center">
+        {% block footer %} <!-- 定义页脚块 -->
+            <small> &copy; 2022 <a href="https://bootstrap-flask.readthedocs.io/en/stable/" title="InfraManager">主机资源信息管理</a>
+            </small>
+        {% endblock %}
+    </footer>
+</main>
+
+<!-- 动态加载 Bootstrap js 脚本 -->
+{% block scripts %}
+    {{ bootstrap.load_js() }}
+{% endblock %}
+
+</body>
+</html>
+

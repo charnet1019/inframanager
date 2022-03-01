@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    登录
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .main {
+            background-color: #fff;
+            border-radius: 20px;
+            width: 300px;
+            height: 350px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -150px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+{#    <div class="row lsb-login">#}
+{#        <div class="col-4 mypanalbox">#}
+{#            <form class="login-form fade-in-effect" id="login" method="post" role="form">#}
+{#                <input type="hidden" name="csrfmiddlewaretoken"#}
+{#                       value="hpVvKsQfaz1LfgCknuznEKhpxgKCMEyzfR">#}
+{#                <div class="form-group is-focused">#}
+{#                    <label class="control-label" for="inputUsername">Username</label>#}
+{#                    <input class="form-control ng-valid ng-dirty ng-touched" id="inputUsername" name="username"#}
+{#                           type="text"#}
+{#                           required>#}
+{#                </div>#}
+{#                <div class="form-group is-focused">#}
+{#                    <label class="control-label" for="inputPassword">Password</label>#}
+{#                    <input class="form-control ng-valid ng-dirty ng-touched" id="inputPassword" name="password"#}
+{#                           type="password" required>#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <button class="btn btn-primary btn-block" id="btnLogin" type="button"><i class="fa-lock"></i>登录#}
+{#                    </button>#}
+{#                </div>#}
+{##}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+
+
+        <div class="container lsb-login">
+            <form action="{{ url_for('user.login') }}" name="login" method="post">
+                <div class="form-group mb-4">
+                    <input type="text" name="username" placeholder="用户名">
+                </div>
+                <div class="form-group mb-4">
+                    <input type="password" name="password" placeholder="密码">
+                </div>
+                <div class="form-group btn">
+{#                    <input type="submit" value="登录">#}
+                    <button type="submit" class="btn btn-primary">登录</button>
+                </div>
+            </form>
+        </div>
+
+    {#    <div class="login-content">#}
+    {#        <div class="right-image-box">#}
+    {#            <a href="https://github.com/jumpserver/jumpserver">#}
+    {#                <img src="/static/img/mountain.png" style="height: 100px; width: 100px"/>#}
+    {#            </a>#}
+    {#        </div>#}
+    {##}
+    {#        <div class="left-form-box no-captcha-challenge">#}
+    {#            <div style="background-color: white">#}
+    {#                <div class="contact-form col-md-10 col-md-offset-1">#}
+    {#                    <form action="{{ url_for('user.login') }}" name="login" method="post"#}
+    {#                          class="login-form fade-in-effect">#}
+    {#                        <div class="mb-3 form-group is-focused"><input type="text" name="username" placeholder="用户名"></div>#}
+    {#                        <div class="mb-3 form-group"><input type="password" name="password" placeholder="密码"></div>#}
+    {#                        <div class="form-group"><input type="submit" value="登录"></div>#}
+    {#                    </form>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+
+{% endblock %}

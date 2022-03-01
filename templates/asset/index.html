@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    资产信息
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-auto me-auto">
+                <a href="{{ url_for('asset.add_asset') }}" class="btn btn-primary">新增资产</a>
+            </div>
+            <div class="col-auto">
+                <span>您好，{{ user }} <a href="{{ url_for('user.logout') }}">退出</a></span>
+            </div>
+        </div>
+    </div>
+
+    {#    <div class="container h-100">#}
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered border-dark">
+            <thead class="table-success align-middle">
+                <tr>
+                    <th>序号</th>
+                    <th>环境</th>
+                    <th>主机名</th>
+                    <th>内网IP</th>
+                    <th>公网IP</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>端口</th>
+                    <th>协议</th>
+                    <th>认证类型</th>
+                    <th>用途</th>
+                    <th>制造商</th>
+                    <th>资产型号</th>
+                    <th>CPU型号</th>
+                    <th>CPU核数</th>
+                    <th>系统盘</th>
+                    <th>数据盘</th>
+                    <th>内存</th>
+                    <th>系统类型</th>
+                    <th>系统位数</th>
+                    <th>序列号</th>
+                    {#                <th>可连接性</th>#}
+                    <th>创建时间</th>
+                    <th>更新时间</th>
+                    <th>创建者</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if assets %}
+                    {% for asset in assets %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ asset.env }}</td>
+                            <td>{{ asset.hostname }}</td>
+                            <td>{{ asset.ip }}</td>
+                            <td>{{ asset.public_ip or '' }}</td>
+                            <td>{{ asset.username or '' }}</td>
+{#                            <td>{{ asset.password or '' }}</td>#}
+{#                            <td>#}
+{#                                <input type="hidden" id="aid" value="{{ asset.id }}">#}
+{#                                <input class="aid" type="password" id="password" value="{{ asset.password or '' }}">#}
+{#                                <input type="checkbox" id="toggle" onchange="toggle_password(this);">#}
+{#                                <span id="toggle_text">显示密码</span>#}
+{#                            </td>#}
+                            <td>
+                                <a style="text-decoration: none" href="#"><input class="aid" type="password" id="password" value="{{ asset.password or '' }}">显示</a>
+                            </td>
+                            <td>{{ asset.port }}</td>
+{#                            <td>{{ asset.protocol }}</td>#}
+                            <td>{% if asset.protocol == 0 %}ssh{% elif asset.protocol == 1 %}rdp{% elif asset.protocol == 2 %}telnet{% elif asset.protocol == 3 %}vnc{% endif %}</td>
+                            <td>{% if asset.auth_type == 0 %}密码{% else %}证书{% endif %}</td>
+                            <td>{{ asset.use or '' }}</td>
+                            <td>{{ asset.vendor or '' }}</td>
+                            <td>{{ asset.model }}</td>
+                            <td>{{ asset.cpu_model or '' }}</td>
+                            <td>{{ asset.cpu_cores or '' }}</td>
+                            <td>{{ asset.sys_hdd }}</td>
+                            <td>{{ asset.data_hdd or '' }}</td>
+                            <td>{{ asset.memory or '' }}</td>
+                            <td>{{ asset.os_type }}</td>
+                            <td>{{ asset.os_arch }}</td>
+                            <td>{{ asset.sn or '' }}</td>
+                            {#                        <td>{{ asset.connectivity }}</td>#}
+                            <td>{{ asset.create_datetime }}</td>
+                            <td>{{ asset.update_datetime }}</td>
+                            <td>{{ asset.create_by or '' }}</td>
+                            <td>{{ asset.comment or '' }}</td>
+                            <td><a href="{{ url_for('asset.edit') }}?asset_id={{ asset.id }}">编辑</a> <a href="{{ url_for('asset.delete') }}?aid={{ asset.id }}">删除</a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        {#function toggle_password(el) {#}
+        {#    let checked = el.checked;#}
+        {#    let aid = document.getElementById('aid').value;#}
+        {#    alert(aid);#}
+        {#    if(checked) {#}
+        {#        document.getElementById('password').type = 'text';#}
+        {#        document.getElementById('toggle_text').textContent = 'Hide';#}
+        {#    } else {#}
+        {#        document.getElementById('password').type = 'password';#}
+        {#        document.getElementById('toggle_text').textContent = 'Show';#}
+        {#    }#}
+        {#}#}
+
+        function toggle_password(el) {
+            let checked = el.checked;
+            let aid = document.getElementsByClassName('aid');
+            alert(aid.item());
+            {#alert(idx)#}
+            if(checked) {
+                document.getElementById('password').type = 'text';
+                document.getElementById('toggle_text').textContent = 'Hide';
+            } else {
+                document.getElementById('password').type = 'password';
+                document.getElementById('toggle_text').textContent = 'Show';
+            }
+        }
+    </script>
+{% endblock %}
