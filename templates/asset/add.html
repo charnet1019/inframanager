@@ -10,31 +10,31 @@
         {#        <div class="row justify-content-center mb-1 mt-4">#}
         <div class="container">
             <div class="row justify-content-md-center row-cols-sm-4">
-                <label for="envid" class="col-2 col-form-label col-form-label-sm">环境</label>
+                <label for="envid" class="xrequired col-2 col-form-label col-form-label-sm">环境</label>
                 <div id="envid" class="col-md-2"><input type="text" name="env" required></div>
 
-                <label for="hostname_id" class="col-2 col-form-label col-form-label-sm">主机名</label>
+                <label for="hostname_id" class="xrequired col-2 col-form-label col-form-label-sm">主机名</label>
                 <div id="hostname_id" class="col-md-2"><input type="text" name="hostname" required></div>
 
-                <label for="ip_id" class="col-2 col-form-label col-form-label-sm">内网ip</label>
+                <label for="ip_id" class="xrequired col-2 col-form-label col-form-label-sm">内网ip</label>
                 <div id="ip_id" class="col-md-2"><input type="text" name="ip" required></div>
 
                 <label for="publicip_id" class="col-2 col-form-label col-form-label-sm">公网ip</label>
                 <div id="publicip_id" class="col-md-2"><input type="text" name="public_ip"></div>
-            </div>
+{#            </div>#}
 
-            <div class="row justify-content-md-center row-cols-sm-4 mb-1">
-                <label for="username_id" class="col-2 col-form-label col-form-label-sm">用户名</label>
+{#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
+                <label for="username_id" class="xrequired col-2 col-form-label col-form-label-sm">用户名</label>
                 <div id="username_id" class="col-md-2"><input type="text" name="username" required></div>
 
-                <label for="password_id" class="col-2 col-form-label col-form-label-sm">密码</label>
+                <label for="password_id" class="xrequired col-2 col-form-label col-form-label-sm">密码</label>
                 <div id="password_id" class="col-md-2"><input type="password" name="password" required></div>
 
-                <label for="port_id" class="col-2 col-form-label col-form-label-sm">端口</label>
+                <label for="port_id" class="xrequired col-2 col-form-label col-form-label-sm">端口</label>
                 <div id="port_id" class="col-md-2"><input type="text" name="port" value="22" required></div>
                 {#            <div class="col-2"><input type="text" name="protocol" placeholder="协议" required></div>#}
 
-                <label for="protocol_id" class="col-2 col-form-label col-form-label-sm">协议</label>
+                <label for="protocol_id" class="xrequired col-2 col-form-label col-form-label-sm">协议</label>
                 <div id="protocol_id" class="col-md-2">
                     <select name="protocol" id="protocolid" class="form-select" required>
                         <option value="0" selected>ssh</option>
@@ -43,11 +43,11 @@
                         <option value="3">vnc</option>
                     </select>
                 </div>
-            </div>
+{#            </div>#}
 
-            <div class="row justify-content-md-center row-cols-sm-4 mb-1">
+{#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
                 {#            <div class="col-2"><input type="text" name="auth_type" placeholder="认证类型" required></div>#}
-                <label for="authtype_id" class="col-2 col-form-label col-form-label-sm">认证类型</label>
+                <label for="authtype_id" class="xrequired col-2 col-form-label col-form-label-sm">认证类型</label>
                 <div class="col-md-2">
                     <select name="auth_type" id="authtype" class="form-select">
                         <option value="0" selected>密码</option>
@@ -63,9 +63,9 @@
 
                 <label for="model_id" class="col-2 col-form-label col-form-label-sm">资产型号</label>
                 <div id="model_id" class="col-md-2"><input type="text" name="model" value="CVM"></div>
-            </div>
+{#            </div>#}
 
-            <div class="row justify-content-md-center row-cols-sm-4 mb-1">
+{#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
                 <label for="cpumodel_id" class="col-2 col-form-label col-form-label-sm">CPU型号</label>
                 <div id="cpumodel_id" class="col-md-2"><input type="text" name="cpu_model"></div>
 
@@ -78,9 +78,9 @@
 
                 <label for="data_hdd_id" class="col-2 col-form-label col-form-label-sm">数据盘</label>
                 <div id="data_hdd_id" class="col-md-2"><input type="text" name="data_hdd"></div>
-            </div>
+{#            </div>#}
 
-            <div class="row justify-content-md-center row-cols-sm-4 mb-1">
+{#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
                 <label for="memory_id" class="col-2 col-form-label col-form-label-sm">内存</label>
                 <div id="memory_id" class="col-md-2"><input type="text" name="memory"></div>
 
@@ -92,9 +92,9 @@
 
                 <label for="sn_id" class="col-2 col-form-label col-form-label-sm">序列号</label>
                 <div id="sn_id" class="col-md-2"><input type="text" name="sn"></div>
-            </div>
+{#            </div>#}
 
-            <div class="row justify-content-md-center row-cols-sm-4">
+{#            <div class="row justify-content-md-center row-cols-sm-4">#}
                 <label for="comment_id" class="col-2 col-form-label col-form-label-sm">备注</label>
                 <div id="comment_id" class="col-2"><input type="text" name="comment"></div>
                 {#            <div>#}

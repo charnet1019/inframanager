@@ -25,3 +25,8 @@
 .login-form {
     margin: 20px;
 }
+
+.xrequired:before {
+    content: '* ';
+    color: red;
+}
