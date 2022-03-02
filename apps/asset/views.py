@@ -1,9 +1,9 @@
-from flask import Blueprint, session, render_template, redirect, request, url_for
+from flask import Blueprint, session, render_template, redirect, request, url_for, make_response, jsonify
 
 from apps.asset.models import Asset
 from apps.user.models import User
 from common.exts import db
-from common.utils import encrypt
+from common.utils import encrypt, decrypt
 
 asset_bp = Blueprint('asset', '__name__', url_prefix='/asset')
 
@@ -208,9 +208,19 @@ def delete():
         return redirect(url_for('asset.index'))
 
 
-@asset_bp.route('/decrypt')
+@asset_bp.route('/decrypt', methods=['GET', 'POST'])
 def decrypt_pwd():
     uid = session.get('uid')
 
     if uid is None:
         return redirect(url_for('user.login'))
+
+    asset_id = request.args.get('aid')
+    asset = Asset.query.get(asset_id)
+
+    password = decrypt(asset.password)
+    # print('++++++++++', password)
+
+    # resp = make_response()
+    return jsonify({'password': password})
+    # return password
