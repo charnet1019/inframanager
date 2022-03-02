@@ -155,9 +155,9 @@
                         },
                         dataType: 'json',
                         success(data) {
-                            console.log(data.password)
+                            {#console.log(data.password)#}
                             {#$('input .aid').html(data.password)#}
-                            $('input[type=text] .aid').val(data.password)
+                            $('input[type=text]').val(data.password)
                         }
                     })
 
