@@ -208,7 +208,7 @@ def delete():
         return redirect(url_for('asset.index'))
 
 
-@asset_bp.route('/decrypt', methods=['GET', 'POST'])
+@asset_bp.route('/decrypt')
 def decrypt_pwd():
     uid = session.get('uid')
 
