@@ -3,7 +3,7 @@ from flask import Blueprint, session, render_template, redirect, request, url_fo
 from apps.asset.models import Asset
 from apps.user.models import User
 from common.exts import db
-from common.utils import encrypt, decrypt
+from common.utils import decrypt_msg, encrypt_msg
 
 asset_bp = Blueprint('asset', '__name__', url_prefix='/asset')
 
@@ -90,7 +90,7 @@ def add_asset():
         asset.ip = ip
         asset.public_ip = public_ip
         asset.username = host_username
-        asset.password = encrypt(host_password)
+        asset.password = encrypt_msg(host_password)
         asset.port = port
         asset.protocol = int(protocol)
         asset.auth_type = auth_type
@@ -209,7 +209,7 @@ def delete():
 
 
 @asset_bp.route('/decrypt')
-def decrypt_pwd():
+def decrypt():
     uid = session.get('uid')
 
     if uid is None:
@@ -218,9 +218,24 @@ def decrypt_pwd():
     asset_id = request.args.get('aid')
     asset = Asset.query.get(asset_id)
 
-    password = decrypt(asset.password)
+    password = decrypt_msg(asset.password)
     # print('++++++++++', password)
 
     # resp = make_response()
     return jsonify({'password': password})
     # return password
+
+
+@asset_bp.route('/encrypt')
+def encrypt():
+    uid = session.get('uid')
+
+    if uid is None:
+        return redirect(url_for('user.login'))
+
+    asset_id = request.args.get('aid')
+    asset = Asset.query.get(asset_id)
+
+    enc_password = asset.password
+
+    return jsonify({'password': enc_password})

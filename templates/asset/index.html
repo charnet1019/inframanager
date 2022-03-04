@@ -166,6 +166,20 @@
                 $(this).parent().parent().find('.aid').attr('type', 'text');
                 $(this).parent().find('span').html('隐藏');
             } else {
+                $.ajax({
+                    url: 'encrypt',
+                    type: 'get',
+                    data: {
+                        aid: $(this).data('aid')
+                    },
+                    dataType: 'json',
+                    success(data) {
+                        {#console.log(data.password)#}
+                        {#$('input .aid').html(data.password)#}
+                        $('input[type=password]').val(data.password)
+                    }
+                })
+
                 {#$(this).parent('td').find('.aid').attr('type', 'password');#}
                 $(this).parent().parent().find('.aid').attr('type', 'password');
                 $(this).parent().find('span').html('显示');

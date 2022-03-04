@@ -21,7 +21,7 @@ def get_key(key_file):
     return key
 
 
-def encrypt(msg):
+def encrypt_msg(msg):
     public_key = get_key('cert/public_key.pem')
     cipher = PKCS1_cipher.new(public_key)
     encrypt_text = base64.b64encode(cipher.encrypt(bytes(msg.encode('utf-8'))))
@@ -29,7 +29,7 @@ def encrypt(msg):
     return encrypt_text.decode('utf-8')
 
 
-def decrypt(encrypt_msg):
+def decrypt_msg(encrypt_msg):
     private_key = get_key('cert/private_key.pem')
     cipher = PKCS1_cipher.new(private_key)
     plain_text = cipher.decrypt(base64.b64decode(encrypt_msg), 0)
