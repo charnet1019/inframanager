@@ -13,44 +13,44 @@
                 </div>
 
                 <div class="row justify-content-md-center row-cols-sm-4">
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="env_id">环境</label>
-                    <div id="env_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="env_id" style="width: 100px">环境</label>
+                    <div id="env_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="env" required value="{{ asset.env }}">
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="hostname_id">主机名</label>
-                    <div id="hostname_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="hostname_id" style="width: 100px">主机名</label>
+                    <div id="hostname_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="hostname" required value="{{ asset.hostname }}">
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="ip_id">内网IP</label>
-                    <div id="ip_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="ip_id" style="width: 100px">内网IP</label>
+                    <div id="ip_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="ip" required value="{{ asset.ip }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="public_ip_id">公网IP</label>
-                    <div id="public_ip_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="public_ip_id" style="width: 100px">公网IP</label>
+                    <div id="public_ip_id" class="col-md-2 mt-4">
                         <input type="text" col-md-2 autocomplete="off" name="public_ip"
                                value="{{ asset.public_ip or '' }}">
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="username_id">用户名</label>
-                    <div id="username_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="username_id" style="width: 100px">用户名</label>
+                    <div id="username_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="username" required value="{{ asset.username }}">
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="password_id">密码</label>
-                    <div id="password_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="password_id" style="width: 100px">密码</label>
+                    <div id="password_id" class="col-md-2 mt-4">
                         <input type="password" autocomplete="off" name="password" required value="{{ asset.password }}">
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="port_id">端口</label>
-                    <div id="port_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="port_id" style="width: 100px">端口</label>
+                    <div id="port_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="port" required value="{{ asset.port }}">
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="protocol_id">协议</label>
-                    <div id="protocol_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="protocol_id" style="width: 100px">协议</label>
+                    <div id="protocol_id" class="col-md-2 mt-4">
                         <select name="protocol" class="form-select">
                             <option value="0" {% if asset.protocol == 0 %}selected{% endif %}>ssh</option>
                             <option value="1" {% if asset.protocol == 1 %}selected{% endif %}>rdp</option>
@@ -59,56 +59,56 @@
                         </select>
                     </div>
 
-                    <label class="xrequired col-2 col-form-label col-form-label-sm" for="inputAuthtype">认证类型</label>
-                    <div id="auth_type_id" class="col-md-2">
+                    <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="inputAuthtype" style="width: 100px">认证类型</label>
+                    <div id="auth_type_id" class="col-md-2 mt-4">
                         <select name="auth_type" class="form-select">
                             <option value="0" {% if asset.auth_type == 0 %}selected{% endif %}>密码</option>
                             <option value="1" {% if asset.auth_type == 1 %}selected{% endif %}>证书</option>
                         </select>
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="cpu_model_id">CPU型号</label>
-                    <div id="cpu_model_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="cpu_model_id" style="width: 100px">CPU型号</label>
+                    <div id="cpu_model_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="cpu_model" value="{{ asset.cpu_model or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="cpu_model_id">CPU核数</label>
-                    <div id="cpu_cores_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="cpu_model_id" style="width: 100px">CPU核数</label>
+                    <div id="cpu_cores_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="cpu_cores" value="{{ asset.cpu_cores or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="memory_id">内存</label>
-                    <div id="memory_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="memory_id" style="width: 100px">内存</label>
+                    <div id="memory_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="memory" value="{{ asset.memory or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="use_id">用途</label>
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="use_id" style="width: 100px">用途</label>
                     <div id="use_id" class="col-md-2">
                         <input type="text" autocomplete="off" name="use" value="{{ asset.use or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="vendor_id">制造商</label>
-                    <div id="vendor_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="vendor_id" style="width: 100px">制造商</label>
+                    <div id="vendor_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="vendor" value="{{ asset.vendor or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="sys_hdd_id">系统盘</label>
-                    <div id="sys_hdd_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="sys_hdd_id" style="width: 100px">系统盘</label>
+                    <div id="sys_hdd_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="sys_hdd" required value="{{ asset.sys_hdd or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="data_hdd_id">数据盘</label>
-                    <div id="data_hdd_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="data_hdd_id" style="width: 100px">数据盘</label>
+                    <div id="data_hdd_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="data_hdd" value="{{ asset.data_hdd or '' }}">
                     </div>
 
-                    <label for="sn_id" class="col-2 col-form-label col-form-label-sm">序列号</label>
-                    <div id="sn_id" class="col-md-2">
+                    <label for="sn_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">序列号</label>
+                    <div id="sn_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="sn" value="{{ asset.sn or '' }}">
                     </div>
 
-                    <label class="col-2 col-form-label col-form-label-sm" for="comment_id">备注</label>
-                    <div id="comment_id" class="col-md-2">
+                    <label class="col-2 col-form-label col-form-label-sm mt-4" for="comment_id" style="width: 100px">备注</label>
+                    <div id="comment_id" class="col-md-2 mt-4">
                         <input type="text" autocomplete="off" name="comment" value="{{ asset.comment or '' }}">
                     </div>
 

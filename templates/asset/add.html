@@ -10,32 +10,32 @@
         {#        <div class="row justify-content-center mb-1 mt-4">#}
         <div class="container">
             <div class="row justify-content-md-center row-cols-sm-4">
-                <label for="envid" class="xrequired col-2 col-form-label col-form-label-sm">环境</label>
-                <div id="envid" class="col-md-2"><input type="text" name="env" required></div>
+                <label for="envid" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">环境</label>
+                <div id="envid" class="col-md-2 mt-4"><input type="text" name="env" required></div>
 
-                <label for="hostname_id" class="xrequired col-2 col-form-label col-form-label-sm">主机名</label>
-                <div id="hostname_id" class="col-md-2"><input type="text" name="hostname" required></div>
+                <label for="hostname_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">主机名</label>
+                <div id="hostname_id" class="col-md-2 mt-4"><input type="text" name="hostname" required></div>
 
-                <label for="ip_id" class="xrequired col-2 col-form-label col-form-label-sm">内网ip</label>
-                <div id="ip_id" class="col-md-2"><input type="text" name="ip" required></div>
+                <label for="ip_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">内网ip</label>
+                <div id="ip_id" class="col-md-2 mt-4"><input type="text" name="ip" required></div>
 
-                <label for="publicip_id" class="col-2 col-form-label col-form-label-sm">公网ip</label>
-                <div id="publicip_id" class="col-md-2"><input type="text" name="public_ip"></div>
+                <label for="publicip_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">公网ip</label>
+                <div id="publicip_id" class="col-md-2 mt-4"><input type="text" name="public_ip"></div>
 {#            </div>#}
 
 {#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
-                <label for="username_id" class="xrequired col-2 col-form-label col-form-label-sm">用户名</label>
-                <div id="username_id" class="col-md-2"><input type="text" name="username" required></div>
+                <label for="username_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">用户名</label>
+                <div id="username_id" class="col-md-2 mt-4"><input type="text" name="username" required></div>
 
-                <label for="password_id" class="xrequired col-2 col-form-label col-form-label-sm">密码</label>
-                <div id="password_id" class="col-md-2"><input type="password" name="password" required></div>
+                <label for="password_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">密码</label>
+                <div id="password_id" class="col-md-2 mt-4"><input type="password" name="password" required></div>
 
-                <label for="port_id" class="xrequired col-2 col-form-label col-form-label-sm">端口</label>
-                <div id="port_id" class="col-md-2"><input type="text" name="port" value="22" required></div>
+                <label for="port_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">端口</label>
+                <div id="port_id" class="col-md-2 mt-4"><input type="text" name="port" value="22" required></div>
                 {#            <div class="col-2"><input type="text" name="protocol" placeholder="协议" required></div>#}
 
-                <label for="protocol_id" class="xrequired col-2 col-form-label col-form-label-sm">协议</label>
-                <div id="protocol_id" class="col-md-2">
+                <label for="protocol_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">协议</label>
+                <div id="protocol_id" class="col-md-2 mt-4">
                     <select name="protocol" id="protocolid" class="form-select" required>
                         <option value="0" selected>ssh</option>
                         <option value="1">rdp</option>
@@ -47,56 +47,56 @@
 
 {#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
                 {#            <div class="col-2"><input type="text" name="auth_type" placeholder="认证类型" required></div>#}
-                <label for="authtype_id" class="xrequired col-2 col-form-label col-form-label-sm">认证类型</label>
-                <div class="col-md-2">
+                <label for="authtype_id" class="xrequired col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">认证类型</label>
+                <div class="col-md-2 mt-4">
                     <select name="auth_type" id="authtype" class="form-select">
                         <option value="0" selected>密码</option>
                         <option value="1">证书</option>
                     </select>
                 </div>
 
-                <label for="use_id" class="col-2 col-form-label col-form-label-sm">用途</label>
-                <div id="use_id" class="col-md-2"><input type="text" name="use"></div>
+                <label for="use_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">用途</label>
+                <div id="use_id" class="col-md-2 mt-4"><input type="text" name="use"></div>
 
-                <label for="vendor_id" class="col-2 col-form-label col-form-label-sm">制造商</label>
-                <div id="vendor_id" class="col-md-2"><input type="text" name="vendor"></div>
+                <label for="vendor_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">制造商</label>
+                <div id="vendor_id" class="col-md-2 mt-4"><input type="text" name="vendor"></div>
 
-                <label for="model_id" class="col-2 col-form-label col-form-label-sm">资产型号</label>
-                <div id="model_id" class="col-md-2"><input type="text" name="model" value="CVM"></div>
+                <label for="model_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">资产型号</label>
+                <div id="model_id" class="col-md-2 mt-4"><input type="text" name="model" value="CVM"></div>
 {#            </div>#}
 
 {#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
-                <label for="cpumodel_id" class="col-2 col-form-label col-form-label-sm">CPU型号</label>
-                <div id="cpumodel_id" class="col-md-2"><input type="text" name="cpu_model"></div>
+                <label for="cpumodel_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">CPU型号</label>
+                <div id="cpumodel_id" class="col-md-2 mt-4"><input type="text" name="cpu_model"></div>
 
-                <label for="cpucores_id" class="col-2 col-form-label col-form-label-sm">CPU核数</label>
-                <div id="cpucores_id" class="col-md-2"><input type="text" name="cpu_cores"></div>
+                <label for="cpucores_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">CPU核数</label>
+                <div id="cpucores_id" class="col-md-2 mt-4"><input type="text" name="cpu_cores"></div>
 
-                <label for="sys_hdd_id" class="col-2 col-form-label col-form-label-sm">系统盘</label>
-                <div id="sys_hdd_id" class="col-md-2"><input type="text" name="sys_hdd" value="50">
+                <label for="sys_hdd_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">系统盘</label>
+                <div id="sys_hdd_id" class="col-md-2 mt-4"><input type="text" name="sys_hdd" value="50">
                 </div>
 
-                <label for="data_hdd_id" class="col-2 col-form-label col-form-label-sm">数据盘</label>
-                <div id="data_hdd_id" class="col-md-2"><input type="text" name="data_hdd"></div>
+                <label for="data_hdd_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">数据盘</label>
+                <div id="data_hdd_id" class="col-md-2 mt-4"><input type="text" name="data_hdd"></div>
 {#            </div>#}
 
 {#            <div class="row justify-content-md-center row-cols-sm-4 mb-1">#}
-                <label for="memory_id" class="col-2 col-form-label col-form-label-sm">内存</label>
-                <div id="memory_id" class="col-md-2"><input type="text" name="memory"></div>
+                <label for="memory_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">内存</label>
+                <div id="memory_id" class="col-md-2 mt-4"><input type="text" name="memory"></div>
 
-                <label for="os_type_id" class="col-2 col-form-label col-form-label-sm">系统类型</label>
-                <div id="os_type_id" class="col-md-2"><input type="text" name="os_type" value="CentOS"></div>
+                <label for="os_type_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">系统类型</label>
+                <div id="os_type_id" class="col-md-2 mt-4"><input type="text" name="os_type" value="CentOS"></div>
 
-                <label for="os_arch_id" class="col-2 col-form-label col-form-label-sm">系统位数</label>
-                <div id="os_arch_id" class="col-md-2"><input type="text" name="os_arch" value="AMD64"></div>
+                <label for="os_arch_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">系统位数</label>
+                <div id="os_arch_id" class="col-md-2 mt-4"><input type="text" name="os_arch" value="AMD64"></div>
 
-                <label for="sn_id" class="col-2 col-form-label col-form-label-sm">序列号</label>
-                <div id="sn_id" class="col-md-2"><input type="text" name="sn"></div>
+                <label for="sn_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">序列号</label>
+                <div id="sn_id" class="col-md-2 mt-4"><input type="text" name="sn"></div>
 {#            </div>#}
 
 {#            <div class="row justify-content-md-center row-cols-sm-4">#}
-                <label for="comment_id" class="col-2 col-form-label col-form-label-sm">备注</label>
-                <div id="comment_id" class="col-2"><input type="text" name="comment"></div>
+                <label for="comment_id" class="col-2 col-form-label col-form-label-sm mt-4" style="width: 100px">备注</label>
+                <div id="comment_id" class="col-2 mt-4"><input type="text" name="comment"></div>
                 {#            <div>#}
                 {#                <textarea name="comments" id="commentid" cols="1" rows="2" class="form-control"></textarea>#}
                 {#            </div>#}

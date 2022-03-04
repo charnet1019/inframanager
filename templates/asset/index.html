@@ -97,7 +97,7 @@
                         <td>{{ asset.create_by or '' }}</td>
                         <td>{{ asset.comment or '' }}</td>
                         <td><a href="{{ url_for('asset.edit') }}?asset_id={{ asset.id }}">编辑</a> <a
-                                href="{{ url_for('asset.delete') }}?aid={{ asset.id }}">删除</a></td>
+                                href="{{ url_for('asset.delete') }}?aid={{ asset.id }}" onclick="return confirm_del()">删除</a></td>
                     </tr>
                 {% endfor %}
             {% endif %}
@@ -111,66 +111,74 @@
     {{ super() }}
     <script>
 
-            function toggle_password() {
-                //let row_num = $('#table tbody>tr').click(function () {
-                //    let trSeq = $(this).parent().find("tr").index($(this)[0]) + 1;
+        function toggle_password() {
+            //let row_num = $('#table tbody>tr').click(function () {
+            //    let trSeq = $(this).parent().find("tr").index($(this)[0]) + 1;
 
-                //    let data_id = document.getElementById('toggle');
-                //    let data_idx = data_id.getAttribute('data-index');
+            //    let data_id = document.getElementById('toggle');
+            //    let data_idx = data_id.getAttribute('data-index');
 
-                //    alert(data_idx);
-                //})
+            //    alert(data_idx);
+            //})
 
-                //console.log($(toggle).is(':checked'));
-                //    console.log(this)
-                //if ($(toggle).is(':checked')) {
-                //    $(toggle).parent('td').find('.aid').attr('type', 'text');
-                //    $(toggle).parent().parent().find('.aid').attr('type', 'text');
-                //    $(toggle).parent().find('span').html('隐藏');
-                //} else {
-                //    $(toggle).parent('td').find('.aid').attr('type', 'password');
-                //    $(toggle).parent().parent().find('.aid').attr('type', 'password');
-                //    $(toggle).parent().find('span').html('显示');
-                //}
+            //console.log($(toggle).is(':checked'));
+            //    console.log(this)
+            //if ($(toggle).is(':checked')) {
+            //    $(toggle).parent('td').find('.aid').attr('type', 'text');
+            //    $(toggle).parent().parent().find('.aid').attr('type', 'text');
+            //    $(toggle).parent().find('span').html('隐藏');
+            //} else {
+            //    $(toggle).parent('td').find('.aid').attr('type', 'password');
+            //    $(toggle).parent().parent().find('.aid').attr('type', 'password');
+            //    $(toggle).parent().find('span').html('显示');
+            //}
 
 
-                // let checked = el.checked;
-                // let aid = document.getElementsByClassName('aid');
-                // {#alert(idx)#}
-                // if(checked) {
-                //     document.getElementById('password').type = 'text';
-                //     document.getElementById('toggle_text').textContent = 'Hide';
-                // } else {
-                //     document.getElementById('password').type = 'password';
-                //     document.getElementById('toggle_text').textContent = 'Show';
-                // }
+            // let checked = el.checked;
+            // let aid = document.getElementsByClassName('aid');
+            // {#alert(idx)#}
+            // if(checked) {
+            //     document.getElementById('password').type = 'text';
+            //     document.getElementById('toggle_text').textContent = 'Hide';
+            // } else {
+            //     document.getElementById('password').type = 'password';
+            //     document.getElementById('toggle_text').textContent = 'Show';
+            // }
+        }
+
+        $('.toggle').on('change', function () {
+            if ($(this).is(':checked')) {
+                $.ajax({
+                    url: 'decrypt',
+                    type: 'get',
+                    data: {
+                        aid: $(this).data('aid')
+                    },
+                    dataType: 'json',
+                    success(data) {
+                        {#console.log(data.password)#}
+                        {#$('input .aid').html(data.password)#}
+                        $('input[type=text]').val(data.password)
+                    }
+                })
+
+                {#$(this).parent('td').find('.aid').attr('type', 'text');#}
+                $(this).parent().parent().find('.aid').attr('type', 'text');
+                $(this).parent().find('span').html('隐藏');
+            } else {
+                {#$(this).parent('td').find('.aid').attr('type', 'password');#}
+                $(this).parent().parent().find('.aid').attr('type', 'password');
+                $(this).parent().find('span').html('显示');
             }
-            $('.toggle').on('change', function () {
-                if ($(this).is(':checked')) {
-                     $.ajax({
-                        url: 'decrypt',
-                        type:'get',
-                        data: {
-                            aid: $(this).data('aid')
-                        },
-                        dataType: 'json',
-                        success(data) {
-                            {#console.log(data.password)#}
-                            {#$('input .aid').html(data.password)#}
-                            $('input[type=text]').val(data.password)
-                        }
-                    })
+        })
 
-                    {#$(this).parent('td').find('.aid').attr('type', 'text');#}
-                    $(this).parent().parent().find('.aid').attr('type', 'text');
-                    $(this).parent().find('span').html('隐藏');
-                } else {
-                    {#$(this).parent('td').find('.aid').attr('type', 'password');#}
-                    $(this).parent().parent().find('.aid').attr('type', 'password');
-                    $(this).parent().find('span').html('显示');
-                }
-            })
+        function confirm_del() {
+            if(confirm('确认删除吗?')) {
+                return true;
+            }
 
+            return false;
+        }
 
 
     </script>
