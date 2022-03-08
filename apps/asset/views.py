@@ -174,7 +174,10 @@ def edit():
         asset.ip = ip
         asset.public_ip = public_ip
         asset.username = username
-        asset.password = encrypt_msg(password)
+        if asset.password == password:
+            asset.password = password
+        else:
+            asset.password = encrypt_msg(password)
         asset.port = port
         asset.auth_type = int(auth_type)
         asset.use = use
