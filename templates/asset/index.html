@@ -15,7 +15,7 @@
             </div>
 
             <div class="col-auto">
-                <span>您好，{{ user }} <a href="{{ url_for('user.logout') }}">退出</a></span>
+                <span>您好，{{ user }} <a href="{{ url_for('user.logout') }}" style="text-decoration: none">退出</a></span>
             </div>
         </div>
     </div>
@@ -98,8 +98,8 @@
                         <td>{{ asset.update_datetime }}</td>
                         <td>{{ asset.create_by or '' }}</td>
                         <td>{{ asset.comment or '' }}</td>
-                        <td><a href="{{ url_for('asset.edit') }}?asset_id={{ asset.id }}">编辑</a> <a
-                                href="{{ url_for('asset.delete') }}?aid={{ asset.id }}" onclick="return confirm_del()">删除</a></td>
+                        <td><a href="{{ url_for('asset.edit') }}?asset_id={{ asset.id }}" style="text-decoration: none;">编辑</a>
+                            <a href="{{ url_for('asset.delete') }}?aid={{ asset.id }}" onclick="return confirm_del()" style="text-decoration: none;">删除</a></td>
                     </tr>
                 {% endfor %}
             {% endif %}
