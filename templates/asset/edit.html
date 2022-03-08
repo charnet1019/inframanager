@@ -41,7 +41,11 @@
 
                     <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="password_id" style="width: 100px">密码</label>
                     <div id="password_id" class="col-md-2 mt-4">
-                        <input type="password" autocomplete="off" name="password" required value="{{ asset.password }}">
+                        <input id="aid" class="aid" type="password" autocomplete="off" name="password" required value="{{ asset.password }}">
+                        <label>
+                            <input type="checkbox" class="toggle" id="toggle" data-aid="{{ asset.id }}">
+                            <span>显示</span>
+                        </label>
                     </div>
 
                     <label class="xrequired col-2 col-form-label col-form-label-sm mt-4" for="port_id" style="width: 100px">端口</label>
@@ -130,4 +134,65 @@
             </div>
         {% endif %}
     </form>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+
+        $('.toggle').on('change', function () {
+            if ($(this).is(':checked')) {
+                {#let id = location.href.substring(location.href.indexOf("=")+1);#}
+                {#alert(id);#}
+                {#alert($(this).data('aid'))#}
+                $.ajax({
+                    url: 'decrypt',
+                    type: 'get',
+                    data: {
+                        aid: $(this).data('aid')
+                    },
+                    dataType: 'json',
+                    success(data) {
+                        {#console.log(data.password)#}
+                        {#$('input .aid').html(data.password)#}
+                        {#$('input[type=text] #aid').val(data.password)#}
+                        $('#aid').val(data.password)
+                    }
+                })
+
+                {#$(this).parent('td').find('.aid').attr('type', 'text');#}
+                $(this).parent().parent().find('.aid').attr('type', 'text');
+                $(this).parent().find('span').html('隐藏');
+            } else {
+                $.ajax({
+                    url: 'encrypt',
+                    type: 'get',
+                    data: {
+                        aid: $(this).data('aid')
+                    },
+                    dataType: 'json',
+                    success(data) {
+                        {#console.log(data.password)#}
+                        {#$('input .aid').html(data.password)#}
+                        $('input[type=password]').val(data.password)
+                    }
+                })
+
+                {#$(this).parent('td').find('.aid').attr('type', 'password');#}
+                $(this).parent().parent().find('.aid').attr('type', 'password');
+                $(this).parent().find('span').html('显示');
+            }
+        })
+
+        function confirm_del() {
+            if(confirm('确认删除吗?')) {
+                return true;
+            }
+
+            return false;
+        }
+
+
+    </script>
 {% endblock %}
