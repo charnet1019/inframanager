@@ -8,10 +8,12 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-auto me-auto">
+        <div class="row mt-2">
+            <div class="col-auto me-auto mb-2">
                 <a href="{{ url_for('asset.add_asset') }}" class="btn btn-primary">新增资产</a>
+                <a href="{{ url_for('asset.download') }}" class="btn btn-primary">导出</a>
             </div>
+
             <div class="col-auto">
                 <span>您好，{{ user }} <a href="{{ url_for('user.logout') }}">退出</a></span>
             </div>

@@ -1,9 +1,9 @@
-from flask import Blueprint, session, render_template, redirect, request, url_for, make_response, jsonify
+from flask import Blueprint, session, render_template, redirect, request, url_for, make_response, jsonify, send_file
 
 from apps.asset.models import Asset
 from apps.user.models import User
 from common.exts import db
-from common.utils import decrypt_msg, encrypt_msg
+from common.utils import decrypt_msg, encrypt_msg, export_data
 
 asset_bp = Blueprint('asset', '__name__', url_prefix='/asset')
 
@@ -239,3 +239,53 @@ def encrypt():
     enc_password = asset.password
 
     return jsonify({'password': enc_password})
+
+
+@asset_bp.route('/download')
+def download():
+    uid = session.get('uid')
+
+    if uid is None:
+        return redirect(url_for('user.login'))
+
+    asset_list = []
+    column_list = ['环境', '主机名', '内网IP', '外网IP', '端口', '协议', '用户名', '密码', '认证类型', '资产用途',
+                   '制造商', '资产型号', 'CPU型号', 'CPU核数', '系统盘大小', '数据盘大小',
+                   '内存大小', '系统类型', '系统位数', '序列号', '可连接性', '创建时间', '更新时间', '备注']
+
+    assets = Asset.query.all()
+
+    for asset in assets:
+        temp_list = list()
+
+        temp_list.append(asset.env)
+        temp_list.append(asset.hostname)
+        temp_list.append(asset.ip)
+        temp_list.append(asset.public_ip)
+        temp_list.append(asset.port)
+        temp_list.append(asset.protocol)
+        temp_list.append(asset.username)
+        temp_list.append(decrypt_msg(asset.password))
+        temp_list.append(asset.auth_type)
+        temp_list.append(asset.use)
+        temp_list.append(asset.vendor)
+        temp_list.append(asset.model)
+        temp_list.append(asset.cpu_model)
+        temp_list.append(asset.cpu_cores)
+        temp_list.append(asset.sys_hdd)
+        temp_list.append(asset.data_hdd)
+        temp_list.append(asset.memory)
+        temp_list.append(asset.os_type)
+        temp_list.append(asset.os_arch)
+        temp_list.append(asset.sn)
+        temp_list.append(asset.connectivity)
+        temp_list.append(asset.create_datetime)
+        temp_list.append(asset.update_datetime)
+        temp_list.append(asset.comment)
+
+        asset_list.append(temp_list)
+
+    resp = export_data(column_list, asset_list)
+
+    # return send_file(resp, attachment_filename='hostinfo.xlsx', as_attachment=True)
+    return resp
