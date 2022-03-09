@@ -266,9 +266,21 @@ def download():
         temp_list.append(asset.ip)
         temp_list.append(asset.public_ip)
         temp_list.append(asset.port)
+        # if asset.protocol == 0:
+        #     asset.protocol = 'ssh'
+        # elif asset.protocol == 1:
+        #     asset.protocol = 'rdp'
+        # elif asset.protocol == 2:
+        #     asset.protocol = 'telnet'
+        # elif asset.protocol == 3:
+        #     asset.protocol = 'vnc'
         temp_list.append(asset.protocol)
         temp_list.append(asset.username)
         temp_list.append(decrypt_msg(asset.password))
+        # if asset.auth_type == 0:
+        #     asset.auth_type = '密码'
+        # elif asset.auth_type == 1:
+        #     asset.auth_type = '证书'
         temp_list.append(asset.auth_type)
         temp_list.append(asset.use)
         temp_list.append(asset.vendor)

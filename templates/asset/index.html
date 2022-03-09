@@ -7,11 +7,12 @@
 
 
 {% block content %}
-    <div class="container">
+    <div class="container" style="margin: 0">
         <div class="row mt-2">
             <div class="col-auto me-auto mb-2">
                 <a href="{{ url_for('asset.add_asset') }}" class="btn btn-primary">新增资产</a>
                 <a href="{{ url_for('asset.download') }}" class="btn btn-primary">导出</a>
+                <input type="button" name="btn" class="btn btn-primary" value="自定义列">
             </div>
 
             <div class="col-auto">
